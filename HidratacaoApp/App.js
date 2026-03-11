@@ -17,10 +17,14 @@ export default function App() {
                 <Text style={styles.btnText}>Bebi um Copo</Text>
             </TouchableOpacity>
 
-      <TouchableOpacity style={styles.btn} onPress={() => setCopos(copos === 0)}>
+      <TouchableOpacity style={styles.btn} onPress={() => setCopos(0)}>
                 <Text style={styles.btnText}>Resetar</Text>
             </TouchableOpacity>
 
+        <View style={styles.emojiContainer}>
+            {[...Array(copos)].map((_, index) => (
+            <Text key={index} style={styles.emoji}>🥤</Text>))}
+</View>
         </View>
 );
 }
@@ -29,7 +33,7 @@ const styles = StyleSheet.create({
     flex: 1, 
     alignItems: 'center', 
     justifyContent: 'center', 
-    backgroundColor: '#550055' },
+    backgroundColor: '#293752' },
 
     msg: { color: '#aaa', 
     fontSize: 16, 
@@ -54,6 +58,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#000000'
 
-  }
+  },
+
+  emojiContainer:{
+  flexDirection:'row',
+  flexWrap:'wrap',
+  justifyContent:'center',
+  marginTop:20
+},
+
+emoji:{
+  fontSize:30,
+  margin:5
+}
 
 });
